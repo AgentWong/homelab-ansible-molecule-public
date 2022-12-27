@@ -1,0 +1,22 @@
+sudo dnf install -y git python3-pip
+pip install molecule ansible-lint
+ansible-galaxy collection install containers.podman
+pip install molecule[podman]
+
+# Command "/sbin/init" to run systemd
+# UBI9 url docker.io/redhat/ubi9:9.1.0
+
+# Elastic must have bootstrap.memory_lock: false in elasticsearch.yml
+# Unknown if needed (on docker host) sudo sysctl -w vm.max_map_count=262144
+
+dnf install podman-plugins
+
+# Bottom portion should not be needed if using Red Hat
+dnf install go-toolset
+dnf group install "Development Tools"
+git clone https://github.com/containers/dnsname
+cd dnsname
+make all
+make install PREFIX=/usr
+
+# Disable firewall
