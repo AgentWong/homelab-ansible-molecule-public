@@ -34,10 +34,6 @@ platforms:
     name: kibana1
     published_ports:
       - 0.0.0.0:5601:5601/tcp
-    exposed_ports:
-      - 5601/tcp
-    ports:
-      - "5601:5601"
     groups:
       - kibana
   - <<: *elasticsearch_platform
