@@ -12,7 +12,7 @@ lint: |
   echo "Run yamllint"
   yamllint .
   echo "Run ansible-lint"
-  ansible-lint
+  ansible-lint .
 platforms:
   - name: instance
     image: docker.io/redhat/ubi9:9.1.0  #quay.io/centos/centos:stream8
